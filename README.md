@@ -21,7 +21,6 @@ ObraAlquiler es una aplicación web desarrollada con el framework Laravel, dise�
 <br>
 
 🚀 Instalación:<br>
-
 • descargar el repositorio de git-hub y localizarlo dentro de la carpeta laragon/www.<br>
 • Abrir laragon<br>
 • Entrar a la terminal y copiar el comando: cd ObraAlquiler<br>
