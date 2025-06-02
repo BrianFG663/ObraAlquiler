@@ -7,7 +7,7 @@ ObraAlquiler es una aplicación web desarrollada con el framework Laravel, dise�
 -Asignación de recursos: Vinculación de maquinaria a obras específicas.<br>
 -Control de alquileres: Seguimiento de períodos de alquiler, costos y disponibilidad de equipos.<br>
 -Reportes: Generación de informes detallados sobre obras y utilización de maquinaria.<br>
-<br><br>
+<br>
 ⚙️ Tecnologías necesarias:<br>
 -Backend: Laravel Framework 12.12.0<br>
 -Composer<br>
@@ -18,7 +18,7 @@ ObraAlquiler es una aplicación web desarrollada con el framework Laravel, dise�
 -Frontend: Blade, Tailwind CSS, Vite<br>
 -Base de datos: MySQL<br>
 -Entorno de desarrollo: Laragon<br>
-<br><br>
+<br>
 
 🚀 Instalación:<br>
 
@@ -43,10 +43,10 @@ ObraAlquiler es una aplicación web desarrollada con el framework Laravel, dise�
 
 👤 Usuario:<br>
 • E-MAIL: briangonzaz305@gmail.com<br>
-• CLAVE: brian<br><br>
+• CLAVE: brian<br><br><br>
 
 📧Opcion mail de maquinaria que requiere mantenimiento:<br>
-• En la carpeta descargada abrir el archivo .env, editar la parte de  MAIL y cambiar por:<br><br><br>
+• En la carpeta descargada abrir el archivo .env, editar la parte de  MAIL y cambiar por:<br><br>
 
 MAIL_MAILER=smtp<br>
 MAIL_HOST=smtp.gmail.com<br>
@@ -60,12 +60,11 @@ MAIL_FROM_NAME="Sistema de Mantenimiento"<br><br>
 • Ahora dentro del mismo proyecto entrar a app/listeners/EnviarCorreoMantenimiento:<br>
 • Editar esta linea :<br>
 • Mail::to('pon tu correo aqui')->send(new MantenimientoMaquina($event->maquina));<br>
-
-<br><br>
+<br>
 • En una terminal dentro del proyecto ejecutar:<br>
 • php artisan config:cache<br>
 • php artisan config:clear<br>
-<br><br>
+<br>
 • ahora al finzalizar una asignacion si la maquinaria requiere mantenimiento te llegara un mail.
 
 
