@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return redirect()->route('login');});
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('maquinas');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/mantenimientos', [MaintenancesController::class, 'mantenimientos'])->name('mantenimientos');
+    Route::match(['get', 'post'],'/mantenimiento/maquina', [MaintenancesController::class, 'maquinaMantenimiento'])->name('maquinas.mantenimiento');
     Route::get('/verMantenimiento', [MaintenancesController::class, 'verMantenimiento'])->name('ver.mantenimiento');
     Route::get('/mantenimientos/maquina', [MaintenancesController::class, 'maquinaSinMantenimiento'])->name('maquinas.mantenimientos');
     Route::delete('/eliminarMantenimiento', [MaintenancesController::class, 'eliminarMantenimiento'])->name('eliminar.mantenimiento');
@@ -73,12 +74,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/agregar/mantenimiento', [MaintenancesController::class, 'formularioMantenimiento'])->name('formulario.mantenimiento');
     Route::post('/mantenimiento/{id}', [MaintenancesController::class, 'realizarMantenimiento'])->name('agregar.mantenimiento');
     Route::patch('/mantenimiento/editar/{id}', [MaintenancesController::class, 'editarMantenimiento'])->name('controlador.editar.mantenimiento');
-});
-
-Route::get('/probar-mail', function () {
-    $maquina = Machine::first(); // o creá una instancia manualmente si no tenés máquinas
-    Mail::to('briangonzaz305@gmail.com')->send(new MantenimientoMaquina($maquina));
-    return 'Correo enviado';
 });
 
 require __DIR__.'/auth.php';

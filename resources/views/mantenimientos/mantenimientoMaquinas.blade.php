@@ -2,16 +2,16 @@
 <x-app-layout>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-            <a href="{{ route('mantenimientos') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 mt-4 block">
+            <a href="{{ route('mantenimientos') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 relative top-4 block">
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
 <div class="relative top-0 h-32">
     <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-0">
-        <span class="text-white drop-shadow-lg">MAQUINAS CON MANTENIMIENTO</span> PENDIENTE
+        <span class="text-amber-600 drop-shadow-lg">MAQUINAS CON MANTENIMIENTO</span> PENDIENTE
     </h2>
 </div>
 
-    <div class="relative bottom-12 scroll-container w-3/4 h-[68vh] bg-yellow-50 shadow-md rounded-lg border border-black mx-auto overflow-y-auto">
+    <div class="relative bottom-12 scroll-container w-3/4 h-[68vh] bg-white shadow-md rounded-lg border border-black mx-auto overflow-y-auto">
     <table class="min-w-full table-auto">
         <thead class="bg-black text-yellow-400 sticky top-0">
             <tr>

@@ -1,14 +1,14 @@
-<x-app-layout>
+<x-app-layout >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
         
         <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center">
-            <span class="text-white drop-shadow-lg">ASIGNACIONES</span> FINALIZADAS
+            <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> FINALIZADAS
         </h2>
 
-        <div class="bg-yellow-50 shadow-md rounded-lg overflow-x-auto min-h-[200px] border border-black">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto min-h-[200px] border border-black">
             <table class="min-w-full table-auto">
                 <thead class="bg-black text-yellow-400">
                     <tr>
@@ -59,10 +59,10 @@
         </div>
 
         <h2 class="text-3xl font-extrabold text-gray-800 mt-12 mb-4 text-center">
-            <span class="text-white drop-shadow-lg">ASIGNACIONES</span> EN PROGRESO
+            <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> EN PROGRESO
         </h2>
 
-        <div class="bg-yellow-50 shadow-md rounded-lg overflow-x-auto border border-black">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black">
             <table class="min-w-full table-auto ">
                 <thead class="bg-black text-yellow-400">
                     <tr>

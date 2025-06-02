@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>ObrAlquiler</title>
+
+        <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,7 +17,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-yellow-300">
+        <div
+            >
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -28,7 +31,9 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
+            <main
+            class="min-h-screen bg-center bg-no-repeat bg-cover"
+            style="background-image: url({{asset('images/fondo.png')}})">
                 {{ $slot }}
             </main>
         </div>

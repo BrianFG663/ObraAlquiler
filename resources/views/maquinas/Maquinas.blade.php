@@ -3,10 +3,9 @@
 
 <div class="relative top-0 h-32">
     <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-10">
-        <span class="text-white drop-shadow-lg">HISTORIAL DE</span> MAQUINAS
+        <span class="text-amber-600 drop-shadow-lg">HISTORIAL DE</span> MAQUINAS
     </h2>
 </div>
-
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 relative bottom-16">
         <div class="flex justify-between">
             <form action="{{ route('maquinas.categoria') }}" method="POST">
@@ -27,7 +26,7 @@
         </div>
 
 
-        <div class="bg-yellow-50 shadow-md rounded-lg overflow-x-auto border border-black">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black">
             <table class="min-w-full table-auto">
                 <thead class="bg-black text-yellow-400">
                     <tr>

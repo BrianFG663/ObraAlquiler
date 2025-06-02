@@ -1,6 +1,6 @@
 <x-app-layout>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <a href="{{ route('obras') }}" class="text-blue-400 hover:text-blue-600 transition duration-200 ml-6 mt-4 block">
+    <a href="{{ route('asignaciones') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 mt-4 block">
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
 

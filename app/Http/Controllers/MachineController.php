@@ -26,14 +26,14 @@ class MachineController
         $tipos = Machinetype::all();
 
         $maquinas = Machine::with('machineType', 'maintenances')->paginate(10);
-        return view('Maquinas', compact('maquinas','tipos'));
+        return view('/maquinas/Maquinas', compact('maquinas','tipos'));
 
     }
 
     public function formularioAgregarMaquina(){
         $tipos = Machinetype::all();
 
-        return view('agregarMaquinas',compact('tipos'));
+        return view('/maquinas/agregarMaquinas',compact('tipos'));
     }
 
     public function agregarMaquina(Request $request){
@@ -74,7 +74,7 @@ class MachineController
             ->paginate(10)
             ->appends(['tipo' => $id]);
 
-        return view('maquinasCategoria', compact('maquinas', 'tipo_nombre'));
+        return view('/maquinas/maquinasCategoria', compact('maquinas', 'tipo_nombre'));
     }   
 
     public function verMaquina(Request $request,$id){
@@ -82,7 +82,7 @@ class MachineController
         $maquina_id = $id;
         $maquina = $this->traerMaquina($maquina_id);
 
-        return view('verMaquina',compact('maquina'));
+        return view('/maquinas/verMaquina',compact('maquina'));
     }
 
     public function eliminarMaquina(Request $request){
@@ -99,7 +99,7 @@ class MachineController
         $tipos = Machinetype::all();
         
 
-        return view('editarMaquina',compact('maquina','tipos'));
+        return view('/maquinas/editarMaquina',compact('maquina','tipos'));
     }
 
     public function editarMaquina(Request $request,$id){

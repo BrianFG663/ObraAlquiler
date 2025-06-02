@@ -39,6 +39,14 @@ class MaintenancesController
         return view('/mantenimientos/mantenimientoMaquinas', compact('maquinas_sin_mantenimiento'));
     }
 
+    public function maquinaMantenimiento(Request $request){
+
+        $id = $request->input('maquina');
+        $maquina = Machine::with('maintenances')->find($id);
+
+        return view('/mantenimientos/mantenimientoCategoria', compact('maquina'));
+    }
+
 
     public function eliminarMantenimiento(Request $request){
         $id = $request->input('id');

@@ -1,22 +1,19 @@
 <x-app-layout>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<div class="relative top-6 h-32">
-    <button id="agregarObra"
-        class="absolute top-14 right-8 bg-gray-800 text-white px-4 py-2 rounded-sm shadow hover:bg-black cursor-pointer transition duration-200">
-        AGREGAR OBRA
-    </button>
-    <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-10">
-        <span class="text-white drop-shadow-lg">HISTORIAL</span> DE OBRAS
-    </h2>
-</div>
+    <div class="relative top-6 h-32">
+        <button id="agregarObra"
+            class="absolute top-14 right-8 bg-gray-800 text-white px-4 py-2 rounded-sm shadow hover:bg-black cursor-pointer transition duration-200">
+            AGREGAR OBRA
+        </button>
+        <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-10">
+            <span class="text-amber-600 drop-shadow-lg">HISTORIAL</span> DE OBRAS
+        </h2>
+    </div>
 
-
-
-
-        <div class="bg-yellow-50 shadow-md rounded-lg overflow-x-auto  border border-black relative top -8 ml-8 mr-8">
-            <table class="min-w-full table-auto">
-                <thead class="bg-black text-yellow-400">
+    <div class="bg-white shadow-md rounded-lg overflow-x-auto  border border-black relative top -8 ml-8 mr-8">
+        <table class="min-w-full table-auto">
+            <thead class="bg-black text-yellow-400">
                 <tr>
                     <th class="px-4 py-2 text-left">Nombre</th>
                     <th class="px-4 py-2 text-left">Fecha de inicio</th>
@@ -41,7 +38,7 @@
                         <td class="px-4 py-2">{{ $obra->province->name }}</td>
                         <td class="px-4 py-2 text-center w-32">
                             <button onclick="verObra({{ $obra->id }})">
-                                    <i class="fas fa-eye text-orange-400 hover:text-orange-600"></i>
+                                <i class="fas fa-eye text-orange-400 hover:text-orange-600"></i>
                             </button>
                         </td>
                         <td class="px-4 py-2 text-center w-32">
@@ -82,14 +79,14 @@
         </table>
 
         <div class="px-4 bg-black w-full text-yellow-400 h-11">
-                <style>
-                    .pagination * {
-                        background-color: black !important;
-                        color: #FABF09 !important;
-                        text-decoration: none;
-                    }
-                </style>
-                <div class="pagination relative top-1">
+            <style>
+                .pagination * {
+                    background-color: black !important;
+                    color: #FABF09 !important;
+                    text-decoration: none;
+                }
+            </style>
+            <div class="pagination relative top-1">
                 {{ $obras->links() }}
             </div>
         </div>

@@ -1,28 +1,30 @@
 <x-app-layout>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <a href="{{ route('obras') }}" class="text-blue-400 hover:text-blue-600 transition duration-200 ml-6 mt-4 block">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <a href="{{ route('obras') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 relative top-4 block">
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
+    <h2 class="text-3xl font-extrabold text-yellow-500 mb-4 text-center">
+            <span class="text-black">EDITAR</span> MAQUINA
+        </h2>
      <form action="{{route('controlador.editar.obra',$obra->id)}}" method="POST" id="formulario-maquina" class="relative top-8 max-w-xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg space-y-6">
         @csrf
         @method('patch')
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">EDITAR MAQUINA</h2>
 
         <div class="space-y-4">
             <label for="name" class="block text-gray-700 font-medium">NOMBRE:</label>
-            <input value="{{ old('name', $obra->name) }}" type="text" name="name" id="name" placeholder="Ingrese nombre" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input value="{{ old('name', $obra->name) }}" type="text" name="name" id="name" placeholder="Ingrese nombre" class="w-full px-4 py-2 border border-yellow-400 rounded-md focus:ring-2 focus:outline-none focus:ring-yellow-500">
 
             <label for="start_date" class="block text-gray-700 font-medium">FECHA DE INICIO:</label>
-            <input value="{{ old('start_date', $obra->start_date) }}" type="date" name="start_date" id="start_date" placeholder="Fecha de inicio" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input value="{{ old('start_date', $obra->start_date) }}" type="date" name="start_date" id="start_date" placeholder="Fecha de inicio" class="w-full px-4 py-2 border border-yellow-400 rounded-md focus:ring-2 focus:outline-none focus:ring-yellow-500">
 
             @if($obra->end_date != null)
             <label for="maintenance_km" class="block text-gray-700 font-medium">FECHA DE FINALIZACION:</label>
-            <input value="{{ old('end_date', $obra->end_date) }}" type="date" id="end_date" name="end_date" placeholder="Fecha de finalizacion" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input value="{{ old('end_date', $obra->end_date) }}" type="date" id="end_date" name="end_date" placeholder="Fecha de finalizacion" class="w-full px-4 py-2 border border-yellow-400 rounded-md focus:ring-2 focus:outline-none focus:ring-yellow-500">
             @endif
 
             <div>
                 <label for="provincia" class="block text-gray-700 font-medium mb-1">PROVINCIA:</label>
-                <select name="provincia" id="provincia" class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select name="provincia" id="provincia" class="w-full px-4 py-2 border border-yellow-400 rounded-md focus:ring-2 focus:outline-none focus:ring-yellow-500">
                     <option value="default" selected disabled hidden>Seleccione provincia</option>
                     @foreach($provincias as $provincia)
                         <option value="{{$provincia->id}}">{{$provincia->name}}</option>
@@ -31,7 +33,7 @@
             </div>
         </div>
 
-        <input type="button" onclick="agregarObra()"  value="EDITAR" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200">
+        <input type="button" onclick="agregarObra()"  value="EDITAR" class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-black transition duration-200">
     </form>
 
     @vite('resources/js/obras/agregarObras.js')

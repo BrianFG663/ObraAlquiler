@@ -46,7 +46,7 @@ ObraAlquiler es una aplicación web desarrollada con el framework Laravel, dise�
 • CLAVE: brian
 
 📧Opcion mail de maquinaria que requiere mantenimiento:
-• En la carpeta descargada abrir el archivo .env y editar la parte de  MAIL y cambiar por:
+• En la carpeta descargada abrir el archivo .env, editar la parte de  MAIL y cambiar por:
 
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com

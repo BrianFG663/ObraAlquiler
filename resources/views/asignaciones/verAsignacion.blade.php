@@ -1,10 +1,10 @@
 <x-app-layout>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <a href="{{ route('asignaciones') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 mt-4 block">
+    <a href="{{ route('asignaciones') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 relative top-4 block">
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
 
-<div class="relative top-10 max-w-5xl w-3/5 mx-auto my-10 p-8 bg-white shadow-2xl rounded-2xl border border-orange-500">
+<div class="relative top-10 max-w-5xl w-3/5 mx-auto my-10 p-8 bg-white shadow-2xl rounded-2xl border border-orange-200">
     <h2 class="text-3xl font-extrabold text-yellow-500 mb-10 text-center">
         <span class="text-gray-800 drop-shadow-lg">DETALLES DE LA</span> ASIGNACION
     </h2>
