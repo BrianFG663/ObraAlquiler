@@ -36,6 +36,7 @@
                         <th class="px-4 py-2 text-center w-32">Ver maquina</th>
                         <th class="px-4 py-2 text-center w-40">Editar maquina</th>
                         <th class="px-4 py-2 text-center w-40">Borrar maquina</th>
+                        <th class="py-2 text-center w-44">Generar informe PDF</th>
                     </tr>
                 </thead>
                 <tbody id="tbody" class="divide-y divide-gray-200">
@@ -58,6 +59,11 @@
                                 <button onclick="eliminarMaquinas({{ $maquina->id }})">
                                     <i class="fas fa-trash text-red-500 hover:text-red-700"></i>
                                 </button>
+                            </td>
+                            <td class="px-4 py-2 text-center w-32">
+                                <a href="{{ route('maquina.pdf', $maquina->id) }}" target="_blank">
+                                    <i class="fa-solid fa-file text-black hover:text-orange-400 transition-colors"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

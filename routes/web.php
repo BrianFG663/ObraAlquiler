@@ -26,7 +26,9 @@ Route::middleware('auth')->group(function () {
 //maquinas
 
 Route::middleware('auth')->group(function () {
+    
     Route::get('/maquinas', [MachineController::class, 'maquinas'])->name('maquinas');
+    Route::get('/pdf/maquina/{id}', [MachineController::class, 'generarReportePDF'])->name('maquina.pdf');
     Route::match(['get', 'post'],'/maquinas/categoria', [MachineController::class, 'maquinaCategoria'])->name('maquinas.categoria');
     Route::get('/verMaquina/{id}', [MachineController::class, 'verMaquina'])->name('ver.maquinas');
     Route::delete('/eliminarMaquina', [MachineController::class, 'eliminarMaquina'])->name('eliminar.maquinas');
@@ -75,5 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/mantenimiento/{id}', [MaintenancesController::class, 'realizarMantenimiento'])->name('agregar.mantenimiento');
     Route::patch('/mantenimiento/editar/{id}', [MaintenancesController::class, 'editarMantenimiento'])->name('controlador.editar.mantenimiento');
 });
+
+
 
 require __DIR__.'/auth.php';

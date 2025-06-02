@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Machine;
 use App\Models\Machinetype;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -65,6 +66,7 @@ class MachineController
 
     public function maquinaCategoria(Request $request)
     {
+        $tipos = Machinetype::all();
         $id = $request->input('tipo');
         $tipo = Machinetype::find($id);
         $tipo_nombre = $tipo->name;
@@ -74,7 +76,7 @@ class MachineController
             ->paginate(10)
             ->appends(['tipo' => $id]);
 
-        return view('/maquinas/maquinasCategoria', compact('maquinas', 'tipo_nombre'));
+        return view('/maquinas/maquinasCategoria', compact('maquinas', 'tipo_nombre','tipos'));
     }   
 
     public function verMaquina(Request $request,$id){
@@ -113,5 +115,16 @@ class MachineController
         $maquina->save();
 
         return redirect()->route('maquinas');
+    }
+
+    public function generarReportePDF($id)
+    {
+    
+        $maquina_mantenimiento = Machine::with(['maintenances','machineType','assignments'])->find($id);
+
+        $maquina = ['maquina' => $maquina_mantenimiento];
+        $pdf = Pdf::loadView('pdf.informe', $maquina);
+    
+        return $pdf->stream('archivo.pdf');
     }
 }
