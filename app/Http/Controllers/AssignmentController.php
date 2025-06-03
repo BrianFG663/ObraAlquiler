@@ -123,4 +123,34 @@ class AssignmentController
 
         return redirect()->route('asignaciones');
     }
+
+    public function formularioAgregarAsignaciones(){
+
+
+        $maquinas = Machine::whereDoesntHave('assignments')->get();
+        $obras = Project::with('province')->get();
+
+        return view('/asignaciones/formularioAgregarAsignaciones',compact('obras','maquinas'));
+
+    }
+
+    public function agregarAsignacion(Request $request){
+        
+        $user = Auth::user();
+
+        Assignment::create([
+            'machine_id'=>$request->input('maquina'),
+            'project_id'=>$request->input('obra'),
+            'user_id'=>$user->id,
+            'start_date'=>$request->input('date'),
+            'end_date'=>NULL,
+            'end_reason'=>NULL,
+            'kilometers'=>NULL
+        ]);
+
+        return redirect()->route('asignaciones');
+    }
+
+
+
 }

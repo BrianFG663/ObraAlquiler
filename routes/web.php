@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/asignaciones', [AssignmentController::class, 'asignaciones'])->name('asignaciones');
+    Route::get('/formularioasignaciones', [AssignmentController::class, 'formularioAgregarAsignaciones'])->name('formulario');
+    Route::post('/agregarAsignaciones', [AssignmentController::class, 'agregarAsignacion'])->name('agregar.asignacion');
     Route::get('/verasignacion', [AssignmentController::class, 'verAsignacion'])->name('ver.asignaciones');
     Route::get('/formularioAsignar/{id}/{id_maquina}', [AssignmentController::class, 'formularioFinalizar'])->name('formulario.asignacion');
     Route::patch('/finalizar/asignacion/{id}/{id_maquina}', [AssignmentController::class, 'finalizarAsignacion'])->name('finalizar.asignacion');

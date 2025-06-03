@@ -50,7 +50,7 @@
             class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-black transition duration-200">
     </form>
 
-    @vite('resources/js/agregarMaquina.js')
+    @vite('resources/js/maquinas/agregarMaquina.js')
 
 
 </x-app-layout>

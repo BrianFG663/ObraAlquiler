@@ -87,5 +87,5 @@
         </div>
     </div>
 
-    @vite('resources/js/accionesMaquinas.js')
+    @vite('resources/js/maquinas/accionesMaquinas.js')
 </x-app-layout>

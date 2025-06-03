@@ -22,7 +22,6 @@
                     <th class="px-4 py-2 text-center w-32">Ver obra</th>
                     <th class="px-4 py-2 text-center w-40">Editar obra</th>
                     <th class="px-4 py-2 text-center w-40">Borrar obra</th>
-                    <th class="px-4 py-2 text-center w-40">Asignar maquina</th>
                 </tr>
             </thead>
             <tbody id="tbody" class="divide-y divide-gray-200">
@@ -52,27 +51,6 @@
                             </button>
                         </td>
 
-                        @if ($obra->assignmets->isNotEmpty())
-                            @if ($obra->assignmets->last()->end_date !== null)
-                                <td class="px-4 py-2 text-center w-32">
-                                    <button onclick="asignarMaquina({{ $obra->id }})">
-                                        <i class="fas fa-link text-gray-400 hover:text-gray-600"></i>
-                                    </button>
-                                </td>
-                            @else
-                                <td class="px-4 py-2 text-center w-32">
-                                    <button id="maquina-asignada">
-                                        <i class="fas fa-link text-red-400 hover:text-red-600"></i>
-                                    </button>
-                                </td>
-                            @endif
-                        @else
-                            <td class="px-4 py-2 text-center w-32">
-                                <button onclick="asignarMaquina({{ $obra->id }})">
-                                    <i class="fas fa-link text-gray-400 hover:text-gray-600"></i>
-                                </button>
-                            </td>
-                        @endif
                     </tr>
                 @endforeach
             </tbody>

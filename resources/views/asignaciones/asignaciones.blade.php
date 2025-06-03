@@ -1,14 +1,19 @@
-<x-app-layout >
+<x-app-layout>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-
-        
-        <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center">
+        <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-8">
             <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> FINALIZADAS
         </h2>
 
-        <div class="bg-white shadow-md rounded-lg overflow-x-auto min-h-[200px] border border-black">
+
+
+        <button id="agregarMaquina"
+            class="relative top-8 left-[80%] bg-gray-800 text-white px-4 py-2 rounded-sm shadow hover:bg-black cursor-pointer transition duration-200 " onclick="agregarAsignacion()">
+            AGREGAR ASIGNACION  <i class="fa-solid fa-chevron-right text-1xl"></i>
+        </button>
+
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto min-h-[200px] border border-black relative top-12">
             <table class="min-w-full table-auto">
                 <thead class="bg-black text-yellow-400">
                     <tr>
@@ -30,17 +35,17 @@
                             <td class="px-4 py-2">{{ $asignaciones_finalizada->user->name }}
                                 {{ $asignaciones_finalizada->user->lastname }}</td>
                             <td class="px-4 py-2 text-center w-32">
-                                <button onclick="verAsignacion({{$asignaciones_finalizada->id}})">
+                                <button onclick="verAsignacion({{ $asignaciones_finalizada->id }})">
                                     <i class="fas fa-eye text-orange-400 hover:text-orange-600"></i>
                                 </button>
                             </td>
                             <td class="px-4 py-2 text-center w-32">
-                                <a href="{{route('editar.asignacion', $asignaciones_finalizada->id)}}">
+                                <a href="{{ route('editar.asignacion', $asignaciones_finalizada->id) }}">
                                     <i class="fas fa-pen text-yellow-400 hover:text-yellow-400"></i>
                                 </a>
                             </td>
                             <td class="px-4 py-2 text-center w-32">
-                                <button onclick="eliminarAsignacion({{$asignaciones_finalizada->id}})">
+                                <button onclick="eliminarAsignacion({{ $asignaciones_finalizada->id }})">
                                     <i class="fas fa-trash text-red-500 hover:text-red-600"></i>
                                 </button>
                             </td>
@@ -58,11 +63,11 @@
             </div>
         </div>
 
-        <h2 class="text-3xl font-extrabold text-gray-800 mt-12 mb-4 text-center">
+        <h2 class="text-3xl font-extrabold text-gray-800 mt-12 mb-4 text-center relative top-12">
             <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> EN PROGRESO
         </h2>
 
-        <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black relative top-12">
             <table class="min-w-full table-auto ">
                 <thead class="bg-black text-yellow-400">
                     <tr>
@@ -85,22 +90,23 @@
                             <td class="px-4 py-2">{{ $asignaciones_pendiente->user->name }}
                                 {{ $asignaciones_pendiente->user->lastname }}</td>
                             <td class="px-4 py-2 text-center w-32">
-                                <button onclick="verAsignacion({{ $asignaciones_pendiente->id}})">
+                                <button onclick="verAsignacion({{ $asignaciones_pendiente->id }})">
                                     <i class="fas fa-eye text-orange-400 hover:text-orange-600"></i>
                                 </button>
                             </td>
                             <td class="px-4 py-2 text-center w-32">
-                                <a href="{{route('editar.asignacion', $asignaciones_finalizada->id)}}">
+                                <a href="{{ route('editar.asignacion', $asignaciones_finalizada->id) }}">
                                     <i class="fas fa-pen text-yellow-400 hover:text-yellow-400"></i>
                                 </a>
                             </td>
                             <td class="px-4 py-2 text-center w-32">
-                                <button onclick="eliminarAsignacion({{$asignaciones_finalizada->id}})">
+                                <button onclick="eliminarAsignacion({{ $asignaciones_finalizada->id }})">
                                     <i class="fas fa-trash text-red-500 hover:text-red-600"></i>
                                 </button>
                             </td>
                             <td class="px-4 py-2 text-center w-32">
-                                <a href="{{ route('formulario.asignacion', [$asignaciones_pendiente->id, $asignaciones_pendiente->machine->id]) }}">
+                                <a
+                                    href="{{ route('formulario.asignacion', [$asignaciones_pendiente->id, $asignaciones_pendiente->machine->id]) }}">
                                     <i class="fas fa-times-circle text-red-500 hover:text-red-600"></i>
                                 </a>
                             </td>

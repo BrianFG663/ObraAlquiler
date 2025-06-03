@@ -19,14 +19,11 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable(); 
             $table->string('end_reason')->nullable();
-            $table->integer('kilometers');
+            $table->integer('kilometers')->nullable();
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('assignments');

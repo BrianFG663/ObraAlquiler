@@ -50,3 +50,8 @@ window.verAsignacion = function(id){
     console.log(id)
     location.href = `/verasignacion?id=${id}`
 }
+
+
+window.agregarAsignacion = function(){
+    location.href = `/formularioasignaciones`
+}

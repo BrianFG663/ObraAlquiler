@@ -13,6 +13,9 @@ class Assignment extends Model
 
     protected $fillable = [
         'start_date',
+        'machine_id',
+        'project_id',
+        'user_id',
         'end_date',
         'end_reason',
         'kilometers',

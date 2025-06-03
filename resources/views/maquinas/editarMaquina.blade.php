@@ -33,5 +33,5 @@
     </form>
 
 
-    @vite('resources/js/editarMaquinas.js')
+    @vite('resources/js/maquinas/editarMaquinas.js')
 </x-app-layout>
