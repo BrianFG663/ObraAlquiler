@@ -13,8 +13,8 @@
                 @csrf
                 <select name="maquina" id="maquina"
                     class="relative -top-2 g-yellow-50 rounded-sm border border-gray-300 shadow-sm focus:outline-none text-center">
-                    @foreach ($mantenimientos as $mantenimiento)
-                        <option value="{{ $mantenimiento->machine->id }}">{{ $mantenimiento->machine->serial_number }}</option>
+                    @foreach ($maquinas_mantenimiento as $maquina_mantenimiento)
+                        <option value="{{ $maquina_mantenimiento->id }}">{{ $maquina_mantenimiento->serial_number }}</option>
                     @endforeach
                 </select>
                 <input type="submit" value="BUSCAR"

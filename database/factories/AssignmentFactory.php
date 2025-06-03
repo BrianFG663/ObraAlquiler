@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Assignment>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Assignments>
  */
 class AssignmentFactory extends Factory
 {
@@ -19,17 +19,16 @@ class AssignmentFactory extends Factory
      */
     public function definition(): array
     {
-        $start = $this->faker->dateTimeBetween('-1 year', 'now');
-        $end = $this->faker->optional()->dateTimeBetween($start, 'now');
+        $startDate = $this->faker->dateTimeBetween('-1 years', 'now');
 
         return [
-        'machine_id' => Machine::factory(),
-        'project_id' => Project::factory(),
-        'user_id' => 1,
-        'start_date' => $start->format('Y-m-d'),
-        'end_date' => $end ? $end->format('Y-m-d') : null,
-        'end_reason' => $this->faker->optional()->sentence,
-        'kilometers' => $this->faker->numberBetween(100, 10000),
-    ];
+            'machine_id' => Machine::inRandomOrder()->first()->id,
+            'project_id' => Project::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'start_date' => $startDate->format('Y-m-d'),
+            'end_date' => null, // por defecto null, se setea en el seeder para algunos
+            'end_reason' => null,
+            'kilometers' => null,
+        ];
     }
 }

@@ -23,11 +23,15 @@ class DatabaseSeeder extends Seeder
 
         
         User::factory()->create();
-        Province::factory(10)->create();
-        Machinetype::factory(3)->create();
-        Machine::factory(15)->create();
-        Project::factory(10)->create();
-        Assignment::factory(25)->create();
-        Maintenance::factory(30)->create();
+
+        $this->call([
+            ProvinceSeeder::class,
+            MachineTypeSeeder::class,
+            MachineSeeder::class,
+            ProjectSeeder::class,
+            AssignmentSeeder::class,
+            MaintenanceSeeder::class,
+        ]);
+
     }
 }

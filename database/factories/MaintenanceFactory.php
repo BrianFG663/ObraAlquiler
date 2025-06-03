@@ -18,10 +18,10 @@ class MaintenanceFactory extends Factory
     public function definition(): array
     {
         return [
-        'machine_id' => Machine::factory(),
-        'maintenance_date' => $this->faker->date(),
-        'kilometers_maintenances' => $this->faker->numberBetween(1000, 150000),
-        'description' => $this->faker->sentence,
-    ];
+            'machine_id' => Machine::inRandomOrder()->first()->id, // puede ser sobrescrito en el seeder
+            'maintenance_date' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d'),
+            'kilometers_maintenances' => $this->faker->numberBetween(1000, 20000),
+            'description' => $this->faker->sentence(6),
+        ];
     }
 }

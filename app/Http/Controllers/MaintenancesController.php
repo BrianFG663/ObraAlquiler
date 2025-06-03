@@ -12,8 +12,9 @@ class MaintenancesController
     public function mantenimientos(){
 
         $mantenimientos = Maintenance::with('machine')->paginate(10);
+        $maquinas_mantenimiento = Machine::has('maintenances')->get();
        
-        return view('/mantenimientos/mantenimientos', compact('mantenimientos'));
+        return view('/mantenimientos/mantenimientos', compact('mantenimientos','maquinas_mantenimiento'));
     }
 
     public function maquinaSinMantenimiento(){

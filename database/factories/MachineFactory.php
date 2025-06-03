@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Machinetype;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Machine>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Machines>
  */
 class MachineFactory extends Factory
 {
@@ -17,12 +16,12 @@ class MachineFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-        'serial_number' => $this->faker->unique()->numerify('SN-####'),
-        'machinetype_id' => Machinetype::inRandomOrder()->first()?->id ?? Machinetype::factory(),
-        'model' => $this->faker->word,
-        'maintenance_km' => $this->faker->numberBetween(1000, 5000),
-        'life_time_km' => $this->faker->numberBetween(10000, 200000),
-    ];
+         return [
+            'model' => $this->faker->bothify('Modelo-??##'),
+            'serial_number' => 'SN-' . str_pad($this->faker->unique()->numberBetween(0, 9999), 4, '0', STR_PAD_LEFT),
+            'maintenance_km' => $this->faker->numberBetween(500, 2000),
+            'life_time_km' => $this->faker->numberBetween(10000, 50000),
+            'machinetype_id' => null,
+        ];
     }
 }

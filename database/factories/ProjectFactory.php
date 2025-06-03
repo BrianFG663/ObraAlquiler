@@ -2,23 +2,28 @@
 
 namespace Database\Factories;
 
-use App\Models\Project;
 use App\Models\Province;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Projects>
+ */
 class ProjectFactory extends Factory
 {
-    protected $model = Project::class;
-
-    public function definition()
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
     {
+         $startDate = $this->faker->dateTimeBetween('-2 years', 'now');
+
         return [
-            'name' => $this->faker->word, // Genera una palabra aleatoria para el nombre del proyecto
-            'province_id' => Province::factory(), // Asocia un `province_id` usando el factory de Province
-            'start_date' => $this->faker->date, // Genera una fecha aleatoria para el inicio
-            'end_date' => $this->faker->optional()->date, // Genera una fecha aleatoria para la finalización, puede ser NULL
-            'created_at' => now(), // Fecha de creación actual
-            'updated_at' => now(), // Fecha de actualización actual
+            'name' => $this->faker->company . ' Project',
+            'province_id' => Province::inRandomOrder()->first()->id,
+            'start_date' => $startDate->format('Y-m-d'),
+            'end_date' => null, // Se sobrescribe desde el seeder si es necesario
         ];
     }
 }

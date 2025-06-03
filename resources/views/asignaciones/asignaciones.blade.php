@@ -67,7 +67,7 @@
             <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> EN PROGRESO
         </h2>
 
-        <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black relative top-12">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black relative right-[5%] top-12 w-[110%]">
             <table class="min-w-full table-auto ">
                 <thead class="bg-black text-yellow-400">
                     <tr>
