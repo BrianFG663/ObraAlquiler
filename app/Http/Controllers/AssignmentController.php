@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\MantenimientoRequerido;
 use App\Events\MaquinaNecesitaMantenimiento;
 use App\Models\Assignment;
 use App\Models\Machine;
@@ -62,21 +61,7 @@ class AssignmentController
         $maquina->life_time_km += $request->input('km');
         $maquina->save();
 
-
-        
-        if ($maquina->maintenances->isNotEmpty()) {
-            $km_sin_mantenimiento = $maquina->life_time_km - $maquina->maintenances->last()->kilometers_maintenances;
-
-            if($km_sin_mantenimiento > $maquina->maintenance_km){
-                event(new MaquinaNecesitaMantenimiento($maquina));
-            }
-        } else {
-            if($maquina->life_time_km > $maquina->maintenance_km){
-                event(new MaquinaNecesitaMantenimiento($maquina));
-            }
-        }
-
-
+        event(new MaquinaNecesitaMantenimiento($maquina)); //evento correo
         
         return redirect()->route('asignaciones');
     }

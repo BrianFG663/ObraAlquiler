@@ -6,7 +6,7 @@
     <form action="{{route('agregar.mantenimiento',$maquina->id)}}" method="POST" id="formulario-asignacion"
         class="relative top-0 max-w-xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg space-y-6 border border-yellow-500">
         @csrf
-                <h2 class="text-2xl font-extrabold text-yellow-500 mb-4 text-center">
+                <h2 class="text-2xl font-extrabold text-white mb-4 text-center">
             <span class="text-black">MANTENIMIENTO MAQUINA</span> {{$maquina->serial_number}}
         </h2>
 

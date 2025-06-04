@@ -3,7 +3,7 @@
     <a href="{{ route('obras') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 relative top-4 block">
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
-    <h2 class="text-3xl font-extrabold text-yellow-500 mb-4 text-center">
+    <h2 class="text-3xl font-extraboldtext-black mb-4 text-center">
             <span class="text-black">EDITAR</span> MAQUINA
         </h2>
      <form action="{{route('controlador.editar.obra',$obra->id)}}" method="POST" id="formulario-maquina" class="relative top-8 max-w-xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg space-y-6">

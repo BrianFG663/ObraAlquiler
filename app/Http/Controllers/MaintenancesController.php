@@ -9,29 +9,34 @@ use Illuminate\Http\Request;
 
 class MaintenancesController
 {
-    public function mantenimientos(){
+    public function mantenimientos()
+    {
 
         $mantenimientos = Maintenance::with('machine')->paginate(10);
         $maquinas_mantenimiento = Machine::has('maintenances')->get();
-       
-        return view('/mantenimientos/mantenimientos', compact('mantenimientos','maquinas_mantenimiento'));
+
+        return view('/mantenimientos/mantenimientos', compact('mantenimientos', 'maquinas_mantenimiento'));
     }
 
-    public function maquinaSinMantenimiento(){
+    public function maquinaSinMantenimiento()
+    {
         $maquinas = Machine::with('maintenances')->get();
         $maquinas_sin_mantenimiento = [];
 
         foreach ($maquinas as $maquina) {
-
             if ($maquina->maintenances->isNotEmpty()) {
+                $ultimo_km = $maquina->maintenances->last()->kilometers_maintenances;
+                $km_sin_mantenimiento = $maquina->life_time_km - $ultimo_km;
 
-                $km_sin_mantenimiento = $maquina->life_time_km - $maquina->maintenances->last()->kilometers_maintenances;
-
-                if($km_sin_mantenimiento >= $maquina->maintenance_km){
+                if ($km_sin_mantenimiento >= $maquina->maintenance_km) {
+                    $maquina->ultimo_km_mantenimiento = $ultimo_km; 
+                    $maquina->km_sin_mantenimiento = $km_sin_mantenimiento;
                     $maquinas_sin_mantenimiento[] = $maquina;
                 }
-            }else {
-                if($maquina->life_time_km > $maquina->maintenance_km){
+            } else {
+                if ($maquina->life_time_km > $maquina->maintenance_km) {
+                    $maquina->ultimo_km_mantenimiento = 0; 
+                    $maquina->km_sin_mantenimiento = $maquina->life_time_km;
                     $maquinas_sin_mantenimiento[] = $maquina;
                 }
             }
@@ -40,7 +45,10 @@ class MaintenancesController
         return view('/mantenimientos/mantenimientoMaquinas', compact('maquinas_sin_mantenimiento'));
     }
 
-    public function maquinaMantenimiento(Request $request){
+
+
+    public function maquinaMantenimiento(Request $request)
+    {
 
         $id = $request->input('maquina');
         $maquina = Machine::with('maintenances')->find($id);
@@ -49,7 +57,8 @@ class MaintenancesController
     }
 
 
-    public function eliminarMantenimiento(Request $request){
+    public function eliminarMantenimiento(Request $request)
+    {
         $id = $request->input('id');
         $mantenimiento = Maintenance::find($id);
         $mantenimiento->delete();
@@ -57,22 +66,24 @@ class MaintenancesController
         return response()->json(['action' => true]);
     }
 
-    public function formularioEditarMantenimiento($id){
+    public function formularioEditarMantenimiento($id)
+    {
 
         $mantenimiento = Maintenance::find($id);
         $maquinas = Machine::all();
-        
 
-        return view('/mantenimientos/editarMantenimiento',compact('maquinas','mantenimiento'));
+
+        return view('/mantenimientos/editarMantenimiento', compact('maquinas', 'mantenimiento'));
     }
 
-    public function editarMantenimiento(Request $request,$mantenimiento_id){
+    public function editarMantenimiento(Request $request, $mantenimiento_id)
+    {
 
         $maquina_id = $request->input('maquina');
         $maquina = Machine::find($maquina_id);
 
         $mantenimiento = Maintenance::find($mantenimiento_id);
-        
+
 
         $mantenimiento->machine_id = $maquina->id;
         $mantenimiento->maintenance_date = $request->input('date');
@@ -83,33 +94,36 @@ class MaintenancesController
         return redirect()->route('mantenimientos');
     }
 
-    public function verMantenimiento(Request $request){
+    public function verMantenimiento(Request $request)
+    {
 
         $mantenimiento_id = $request->input('id');
 
         $mantenimiento = Maintenance::with('machine.machineType')->find($mantenimiento_id);
 
-        return view('/mantenimientos/verMantenimiento',compact('mantenimiento'));
+        return view('/mantenimientos/verMantenimiento', compact('mantenimiento'));
     }
 
-    public function formularioMantenimiento(Request $request){
+    public function formularioMantenimiento(Request $request)
+    {
 
-        $maquina= Machine::find($request->input('id'));
+        $maquina = Machine::find($request->input('id'));
 
-        return view('/mantenimientos/agregarMantenimiento',compact('maquina'));
+        return view('/mantenimientos/agregarMantenimiento', compact('maquina'));
     }
 
-    public function realizarMantenimiento(Request $request,$id){
+    public function realizarMantenimiento(Request $request, $id)
+    {
 
         $maquina_id = $id;
         $maquina = Machine::find($maquina_id);
         $fecha = Carbon::today();
 
         Maintenance::create([
-            'machine_id'=> $maquina->id,
-            'maintenance_date'=>$fecha,
-            'kilometers_maintenances'=>$maquina->life_time_km,
-            'description'=>$request->input('descripcion'),
+            'machine_id' => $maquina->id,
+            'maintenance_date' => $fecha,
+            'kilometers_maintenances' => $maquina->life_time_km,
+            'description' => $request->input('descripcion'),
         ]);
 
         return redirect()->route('mantenimientos');

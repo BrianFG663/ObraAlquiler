@@ -2,18 +2,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-8">
-            <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> FINALIZADAS
+        <h2 class="text-3xl font-extrabold text-white mb-4 text-center relative top-8">
+            <span class="text-black drop-shadow-lg">ASIGNACIONES</span> FINALIZADAS
         </h2>
 
 
 
         <button id="agregarMaquina"
-            class="relative top-8 left-[80%] bg-gray-800 text-white px-4 py-2 rounded-sm shadow hover:bg-black cursor-pointer transition duration-200 " onclick="agregarAsignacion()">
+            class="relative top-8 left-[85%] bg-gray-800 text-white px-4 py-2 rounded-sm shadow hover:bg-black cursor-pointer transition duration-200 " onclick="agregarAsignacion()">
             AGREGAR ASIGNACION  <i class="fa-solid fa-chevron-right text-1xl"></i>
         </button>
 
-        <div class="bg-white shadow-md rounded-lg overflow-x-auto min-h-[200px] border border-black relative top-12">
+        <div class="bg-white shadow-md rounded-lg overflow-x-auto min-h-[200px] border border-black relative right-[5%] w-[110%] top-12">
             <table class="min-w-full table-auto">
                 <thead class="bg-black text-yellow-400">
                     <tr>
@@ -63,8 +63,8 @@
             </div>
         </div>
 
-        <h2 class="text-3xl font-extrabold text-gray-800 mt-12 mb-4 text-center relative top-12">
-            <span class="text-amber-600 drop-shadow-lg">ASIGNACIONES</span> EN PROGRESO
+        <h2 class="text-3xl font-extrabold text-white mt-12 mb-4 text-center relative top-12">
+            <span class="text-black drop-shadow-lg">ASIGNACIONES</span> EN PROGRESO
         </h2>
 
         <div class="bg-white shadow-md rounded-lg overflow-x-auto border border-black relative right-[5%] top-12 w-[110%]">

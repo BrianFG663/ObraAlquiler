@@ -5,8 +5,8 @@
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
 <div class="relative top-0 h-32">
-    <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-10">
-        <span class="text-amber-600 drop-shadow-lg">HISTORIAL DE MANTENIMIENTOS</span> {{$maquina->serial_number}}
+    <h2 class="text-3xl font-extrabold text-white mb-4 text-center relative top-10">
+        <span class="text-black drop-shadow-lg">HISTORIAL DE MANTENIMIENTOS</span> {{$maquina->serial_number}}
     </h2>
 </div>
 

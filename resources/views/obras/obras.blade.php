@@ -6,8 +6,8 @@
             class="absolute top-14 right-8 bg-gray-800 text-white px-4 py-2 rounded-sm shadow hover:bg-black cursor-pointer transition duration-200">
             AGREGAR OBRA
         </button>
-        <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-10">
-            <span class="text-amber-600 drop-shadow-lg">HISTORIAL</span> DE OBRAS
+        <h2 class="text-3xl font-extrabold text-white mb-4 text-center relative top-10">
+            <span class="text-black drop-shadow-lg">HISTORIAL</span> DE OBRAS
         </h2>
     </div>
 

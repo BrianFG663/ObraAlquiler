@@ -2,8 +2,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <div class="relative top-0 h-32">
-    <h2 class="text-3xl font-extrabold text-gray-800 mb-4 text-center relative top-10">
-        <span class="text-amber-600 drop-shadow-lg">HISTORIAL DE</span> MANTENIMIENTOS
+    <h2 class="text-3xl font-extrabold text-white mb-4 text-center relative top-10">
+        <span class="text-black drop-shadow-lg">HISTORIAL DE</span> MANTENIMIENTOS
     </h2>
 </div>
 

@@ -8,7 +8,7 @@
         class="relative top-0 max-w-xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg space-y-6">
         @csrf
         @method('patch')
-        <h2 class="text-3xl font-extrabold text-yellow-500 mb-4 text-center">
+        <h2 class="text-3xl font-extrabold text-white mb-4 text-center">
             <span class="text-black">EDITAR</span> MANTENIMIENTO
         </h2>
 

@@ -3,7 +3,7 @@
     <a href="{{ route('maquinas') }}" class="text-gray-700 hover:text-black transition duration-200 ml-6 relative top-8 block">
         <i class="fa-solid fa-chevron-left text-3xl"></i>
     </a>
-    <h2 class="text-4xl font-extrabold text-amber-600 mb-4 text-center relative top-20">
+    <h2 class="text-4xl font-extrabold text-white mb-4 text-center relative top-20">
         <span class="text-black">AGREGAR</span> MAQUINA
     </h2>
     <form action="{{ route('agregar.maquinas') }}" method="POST" id="formulario-maquina"
